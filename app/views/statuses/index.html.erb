@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2>
+          Statuses
+          <a href="/statuses/new" class="btn btn-sm btn-success">
+            <i class="fa fa-plus"></i>
+          </a>
+        </h2>
+      </div>
+      <table class="table table-hover table-striped">
+        <% @statuses.each do |status| %>
+          <tr>
+            <td><%= status.user.username %></td>
+            <td><%= time_ago_in_words(status.created_at) %> ago</td>
+            <td><%= status.content %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
