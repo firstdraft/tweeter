@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "statuses#index"
+
   # Routes for the Status resource:
   # CREATE
   get "/statuses/new", :controller => "statuses", :action => "new"

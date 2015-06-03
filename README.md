@@ -93,13 +93,15 @@ belongs_to :sender, :class_name => "User", :foreign_key => "sender_id"
 
 belongs_to :receiver, :class_name => "User", :foreign_key => "receiver_id"
 
-validates :sender, :presence => true
+validates :sender, :presence => true, :uniqueness => { :scope => :receiver }
 validates :receiver, :presence => true
 ```
 
+Notice the uniqueness validation on `:sender` ensures that you can't accidentally follow the same person twice.
+
 The associations in `FriendRequest` are pretty straightforward; we just have to use the non-shortcut form of `belongs_to` so that we can specify a column name that's different from the default for each one-to-many.
 
-The `has_many`s in `User` are slightly tricker, but not bad:
+The `has_many`s in `User` are slightly trickier, but not bad:
 
 ```ruby
 # app/models/user.rb
@@ -146,3 +148,7 @@ That's it for the setup. Now let's use these powerful associations to make our a
         end
 
 That's it! If you want to, you can also place a follower count (`current_user.friends_where_receiver.count`) and following count (`current_user.friends_where_sender.count`) in a sidebar or something.
+
+## Solutions
+
+A completed version is [here](../../../tweeter_solutions).
