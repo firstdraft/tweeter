@@ -9,12 +9,12 @@ To get started, we'll create Users with Devise and Statuses (tweets) with Starte
 The steps I took so far in the application are:
 
  1. `rails new tweeter`
- 1. Add the `devise` and `starter_generators` gems to the `Gemfile`.
+ 1. Add the `devise` and `draft_generators` gems to the `Gemfile`.
  1. `rails generate devise:install`
  1. `rails generate devise user username`
- 1. `rails generate starter:resource status content:string user_id:integer`
+ 1. `rails generate draft:resource status content:string user_id:integer`
  1. `rake db:migrate`
- 1. `rails generate starter:style default`
+ 1. `rails generate draft:layout`
  1. Set the homepage `root 'statuses#index'` in `config/routes.rb`.
  1. Force someone to be signed in at all times in `app/controllers/application_controller.rb`:
 
