@@ -61,9 +61,8 @@ The steps I took so far in the application are:
  1. `bundle install`
  1. `rake db:migrate`
  1. `rake db:seed`
- 1. `rails server`
- 1. Open the code in Sublime.
- 1. Go to [http://localhost:3000](http://localhost:3000) in Chrome.
+ 1. Click Run Project in Cloud9
+ 1. Navigate to your app preview
  1. Sign in with the user "alice@example.com", password "12341234".
  1. You should see a list of random tweets.
 
@@ -80,7 +79,7 @@ So, we need a many-to-many relationship between Users and Users. Like any many-t
 I'm going to call the join model "friend requests". Each row in this table will represent the connection between two users.
 
 ```bash
-rails generate starter:resource friend_request sender_id:integer receiver_id:integer
+rails generate draft:resource friend_request sender_id:integer receiver_id:integer
 ```
 
 Notice that since I can't have two columns both called `user_id`, I've made up two different and descriptive column names instead.
